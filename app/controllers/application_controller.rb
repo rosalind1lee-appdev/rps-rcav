@@ -8,22 +8,20 @@ class ApplicationController < ActionController::Base
 	end
 
 	def play_rock
-    render({:template => "game_templates/user_rock.html.erb"})
-
     @comp_move = ["rock", "paper", "scissors"].sample
 
     if @comp_move == "rock"
 			@outcome = "tied"
 		elsif @comp_move == "paper"
-			@outcome = “lost”
+			@outcome = "lost"
 		elsif @comp_move == "scissors"
 			@outcome = "won"
-		end
+    end
+    
+    render({:template => "game_templates/user_rock.html.erb"})
 	end
 
 	def play_paper
-		render({:template => "game_templates/user_paper.html.erb" })
-
 		@comp_move = ["rock", "paper", "scissors"].sample
 		
 		if @comp_move == "rock"
@@ -32,11 +30,12 @@ class ApplicationController < ActionController::Base
 			@outcome = "tied"
 		elsif @comp_move == "scissors"
 			@outcome = "lost"
-		end
+    end
+    
+    render({:template => "game_templates/user_paper.html.erb" })
 	end
 
 	def play_scissors
-    render({:template => "game_templates/user_scissors.html.erb" })
     
     @comp_move = ["rock", "paper", "scissors"].sample
 		
@@ -46,6 +45,8 @@ class ApplicationController < ActionController::Base
 			@outcome = "won"
 		elsif @comp_move == "scissors"
 			@outcome = "tied"
-		end
-	end
+    end
+    
+    render({:template => "game_templates/user_scissors.html.erb" })
+  end
 end
